@@ -1,2 +1,51 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+
+
+<div class="row">
+  <div class="col-md-8 col-md-push-2">
+    <h3 class="intro"><b>Welcome to Blocmarks</b> — A place to list your favorite bookmarks by categories. Find the best bookmarks from the internet.</h3>
+  </div>
+</div>
+
+<div class="row bookmark-list-body">
+  <div class="col-xs-3 tab-list"> <!-- required for floating -->
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs tabs-left">
+        <li class="active"><a href="#home" data-toggle="tab">Ruby on Rails</a></li>
+        <li><a href="#profile" data-toggle="tab">Sass</a></li>
+        <li><a href="#messages" data-toggle="tab">PHP</a></li>
+        <li><a href="#settings" data-toggle="tab">Programming</a></li>
+      </ul>
+  </div>
+
+  <div class="col-xs-9 tab-content-container">
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="home">
+          <h3 class="tab-title"><a href="#">#Ruby-on-Rails</a></h3>
+          <ul class="bookmark-list">
+            <li>
+              <a href="#">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+                <span class="meta">Posted <span class="date">1 hour ago</span> by <span class="author">Ivor</span></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+                <span class="meta">Posted <span class="date">1 hour ago</span> by <span class="author">Ivor</span></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+                <span class="meta">Posted <span class="date">1 hour ago</span> by <span class="author">Ivor</span></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-pane" id="profile">Profile Tab.</div>
+        <div class="tab-pane" id="messages">Messages Tab.</div>
+        <div class="tab-pane" id="settings">Settings Tab.</div>
+      </div>
+  </div>
+</div>
