@@ -15,3 +15,8 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+$( document ).ready(function() {
+    $('.nav-tabs > li:first-child').addClass('active');
+    $('.tab-pane:first-child').addClass('active');
+});

@@ -57,6 +57,7 @@ h2 {
 .tab-content-container {
   background: white;
   padding: 20px;
+  margin-left: 1px;
   .tab-title {
     margin-top: 0px;
     margin-bottom: 20px;
@@ -80,7 +81,7 @@ h2 {
       margin: 0 auto;
       font-size: 18px;
       font-weight: 300;
-      color: lighten($main-color, 40%);
+      color: lighten($main-color, 30%);
         &:hover, &:focus {
           text-decoration: none;
           background: lighten($main-color, 90%);
