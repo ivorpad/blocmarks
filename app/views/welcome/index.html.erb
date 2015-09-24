@@ -27,26 +27,24 @@
         <h3 class="tab-title">
           <a href="#">#<%= topic.title.parameterize.capitalize %></a>
         </h3>
-
             <% if topic.bookmarks.exists? %>
-
-            <% @bookmarks.each do |bookmark| %>
-            <ul class="bookmark-list">
-              <li>
-                <a href="#">
-                  <%= bookmark.url %> <br>
-                  <span class="meta">Posted
-                    <span class="date"> <%= time_ago_in_words(bookmark.created_at) %></span>
-                    by
-                    <span class="author"><%= bookmark.topic.user.name %></span>
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <% end %>
-        <% else %>
-        <p>The bookmark list is empty.</p>
-        <% end %>
+                <ul class="bookmark-list">
+                  <% topic.bookmarks.each do |bookmark| %>
+                  <li>
+                    <a href="#">
+                        <%= bookmark.url %> <br>
+                        <span class="meta">Posted
+                          <span class="date"> <%= bookmark.created_at %></span>
+                          by
+                          <span class="author"> <%= topic.user.name %> </span>
+                        </span>
+                    </a>
+                  </li>
+                  <% end %>
+                </ul>
+            <% else %>
+              <p>The bookmark list is empty.</p>
+          <% end %>
       </div>
       <% end %>
     </div>
