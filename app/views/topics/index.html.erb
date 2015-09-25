@@ -1,1 +1,64 @@
-<h1>Topics Index</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-push-2">
+      <h3 class="intro">
+        <b>Welcome to Blocmarks</b>
+        — A place to list your favorite bookmarks by categories. Find the best bookmarks from the internet.
+      </h3>
+    </div>
+  </div>
+
+  <div class="bookmark-list-body">
+    <div class="col-xs-2 tab-list">
+  <!-- required for floating -->
+  <!-- Nav tabs -->
+      <ul class="nav nav-tabs tabs-left">
+        <% @topics.each do |topic| %>
+        <li>
+          <a data-toggle="tab" href="#<%= topic.title.parameterize %>"><%= topic.title %></a>
+        </li>
+        <% end %>
+      </ul><!-- /nav nav-tabs tabs-left  -->
+    </div>
+
+    <div class="col-xs-8 tab-content-container">
+  <!-- Tab panes -->
+      <div class="tab-content">
+        <% @topics.each do |topic| %>
+        <div class="tab-pane" id="<%= topic.title.parameterize %>">
+          <h3 class="tab-title">
+            <a href="#">#<%= topic.title.parameterize.capitalize %></a>
+          </h3>
+              <% if topic.bookmarks.exists? %>
+                  <ul class="bookmark-list">
+                    <% topic.bookmarks.each do |bookmark| %>
+                    <li>
+                      <a href="#">
+                          <%= bookmark.url %> <br>
+                          <span class="meta">Posted
+                            <span class="date"> <%= bookmark.created_at %></span>
+                            by
+                            <span class="author"> <%= topic.user.name %> </span>
+                          </span>
+                      </a>
+                    </li>
+                    <% end %>
+                  </ul>
+              <% else %>
+                <p>The bookmark list is empty.</p>
+              <% end %>
+        </div><!-- /tab-pane -->
+        <% end %>
+      </div><!-- /tab-content -->
+    </div>
+  </div><!-- /bookmark-list-body -->
+
+  <div class="row">
+    <div class="col-xs-2">
+        <a href="#" class="btn btn-primary btn-create">Create Topic</a>
+        <a href="#" class="btn btn-primary btn-submit">Submit Link</a>
+        <span class="sidebar-disclaimer"><small>Only registered users can create Topics and Links</small></small>
+    </div>
+  </div>
+
+</div>

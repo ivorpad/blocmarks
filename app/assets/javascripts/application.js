@@ -16,7 +16,10 @@
 //= require bootstrap
 //= require_tree .
 
-$( document ).ready(function() {
+
+// TODO: Fix a bug where the tab won't stay "active" when I go to root_path
+// http://stackoverflow.com/questions/10523433/how-do-i-keep-the-current-tab-active-with-twitter-bootstrap-after-a-page-reload
+$(document).ready(function() {
     $('.nav-tabs > li:first-child').addClass('active');
     $('.tab-pane:first-child').addClass('active');
 });

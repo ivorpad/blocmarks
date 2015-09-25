@@ -19,25 +19,37 @@ $btn-create: #74a73c;
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "welcome.scss";
+ @import "topics.scss";
 
 body {
-  background: #fafafa;
+  background: #f4f4f4;
 }
 
 .btn-create {
   padding: 10px;
-  width: 232px;
+  width: 156px;
   margin-bottom: 15px;
   font-size: 18px;
   border: darken($btn-create, 10%);
   background: $btn-create;
-    &:hover {
+    &:active, &:focus {
+      background: darken($btn-create, 10%) !important;
+    }
+    &:hover{
       background: darken($btn-create, 5%);
     }
 }
 
 .btn-submit {
   padding: 10px;
-  width: 232px;
+  width: 156px;
   font-size: 18px;
+}
+
+.sidebar-disclaimer {
+  display: block;
+  margin-top: 10px;
+  small {
+    font-size: 80%;
+  }
 }
