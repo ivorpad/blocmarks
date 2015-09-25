@@ -17,6 +17,7 @@ class IncomingController < ApplicationController
 
     if @user.nil?
       @user = User.create(name: params[:from],  email: params[:sender], password: params[:sender], password_confirmation: params[:sender] )
+      @user.save!
     end
 
     # Check if the topic is nil, if so, create and save a new topic
