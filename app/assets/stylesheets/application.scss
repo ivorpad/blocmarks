@@ -14,10 +14,30 @@
  *= require_self
  */
 
+$btn-create: #74a73c;
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "welcome.scss";
 
 body {
   background: #fafafa;
+}
+
+.btn-create {
+  padding: 10px;
+  width: 232px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border: darken($btn-create, 10%);
+  background: $btn-create;
+    &:hover {
+      background: darken($btn-create, 5%);
+    }
+}
+
+.btn-submit {
+  padding: 10px;
+  width: 232px;
+  font-size: 18px;
 }

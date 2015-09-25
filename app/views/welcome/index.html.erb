@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div class="row bookmark-list-body">
+<div class="bookmark-list-body">
   <div class="col-xs-3 tab-list">
 <!-- required for floating -->
 <!-- Nav tabs -->
@@ -16,10 +16,10 @@
         <a data-toggle="tab" href="#<%= topic.title.parameterize %>"><%= topic.title %></a>
       </li>
       <% end %>
-    </ul>
+    </ul><!-- /nav nav-tabs tabs-left  -->
   </div>
 
-  <div class="col-xs-9 tab-content-container">
+  <div class="col-xs-8 tab-content-container">
 <!-- Tab panes -->
     <div class="tab-content">
       <% @topics.each do |topic| %>
@@ -44,9 +44,16 @@
                 </ul>
             <% else %>
               <p>The bookmark list is empty.</p>
-          <% end %>
-      </div>
+            <% end %>
+      </div><!-- /tab-pane -->
       <% end %>
-    </div>
+    </div><!-- /tab-content -->
+  </div>
+</div><!-- /bookmark-list-body -->
+
+<div class="row">
+  <div class="col-xs-2">
+      <a href="#" class="btn btn-primary btn-create">Create Topic</a>
+      <a href="#" class="btn btn-primary btn-submit">Submit Link</a>
   </div>
 </div>
