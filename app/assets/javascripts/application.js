@@ -16,7 +16,7 @@
 //= require bootstrap
 //= require_tree .
 
-
+// http://stackoverflow.com/questions/18770517/rails-4-how-to-use-document-ready-with-turbo-links
 $(document).on('ready page:load', function () {
   $('.nav-tabs > li:first-child').addClass('active');
   $('.tab-pane:first-child').addClass('active');
