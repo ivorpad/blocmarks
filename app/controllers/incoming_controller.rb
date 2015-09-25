@@ -7,6 +7,7 @@ class IncomingController < ApplicationController
 
     # Find the user by using params[:sender]
     @user = User.find_by(email: params[:sender])
+    puts params
     # Find the topic by using params[:subject]
     @topic = Topic.find_by(title: params[:subject])
 
@@ -15,7 +16,7 @@ class IncomingController < ApplicationController
     # Check if user is nil, if so, create and save a new user
 
     if @user.nil?
-      @user = User.create(email: params[:sender])
+      @user = User.create(name: params[:from],  email: params[:sender], password: params[:sender], password_confirmation: params[:sender] )
     end
 
     # Check if the topic is nil, if so, create and save a new topic
