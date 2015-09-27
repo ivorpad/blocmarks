@@ -1,2 +1,8 @@
-<h1>Bookmarks#show</h1>
-<p>Find me in app/views/bookmarks/show.html.erb</p>
+<h1>Bookmark Info</h1>
+
+<p>Go to <a href="<%= @bookmark.url %>"><%= @bookmark.url %></a></p>
+<p>URL submitted by: <b><%= @bookmark.topic.user.name %></b>  </p>
+
+Go <%= link_to "Back", topics_path %>
+
+<%= console %>

@@ -18,10 +18,10 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
 
     if @topic.save
-      flash[:notice] = "The topic has been #{@topic.id} created."
+      flash[:notice] = "The topic #{@topic.title} has been  created."
       redirect_to topics_path
     else
-      flash[:error] = "The topic #{@topic.id} cannot be created."
+      flash[:error] = "The topic #{@topic.title} cannot be created."
       render 'new'
     end
   end
