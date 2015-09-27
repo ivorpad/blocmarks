@@ -12,6 +12,8 @@ h2 {
 .tab-list {
   padding-right: 0px;
   padding-left: 0px;
+  position: relative;
+  z-index: 1;
 }
 
 .tabs-left {
@@ -19,22 +21,45 @@ h2 {
   padding-top: 0px;
   & > li {
       margin-bottom: 0px;
+      background: white !important;
       &.active {
           border: none;
+          background: $main-color !important;
+            &:after {
+              content: "";
+              position: absolute;
+              bottom: 15px;
+              left: 191px;
+              border-style: solid;
+              border-color: #F3961C transparent;
+              display: block;
+              width: 0;
+              border-left: 4px solid black;
+              border-right: 0;
+              border-top: 4px solid transparent;
+              border-bottom: 4px solid transparent;
+            }
         & > a {
           border: none;
+          background: $main-color;
+          color: white;
           &:hover, &:focus {
             border: none;
+            background: $main-color;
+            color: white;
+
+
+
           }
         }
       }
     background: $main-color;
     border-bottom: none;
     & > a {
-      color: white;
+      color: $main-color;
       border-radius: 0;
       &:hover {
-        background: lighten($main-color, 10%);
+        background: lighten($main-color, 80%);
         border-color: lighten($main-color, 10%);
       }
     }
@@ -95,6 +120,28 @@ h2 {
 @media only screen
 and (min-width : 45em) {
   .bookmark-list-body {
-    /* margin-left: 100px; */
+    position: relative;
   }
 }
+/*
+
+Caret right for active tabs.
+
+ul.nav.nav-tabs.tabs-left li:after {
+
+}
+
+content: "";
+position: absolute;
+bottom: 15px;
+left: 191px;
+border-style: solid;
+border-color: #F3961C transparent;
+display: block;
+width: 0;
+border-left: 4px solid black;
+border-right: 0;
+border-top: 4px solid transparent;
+border-bottom: 4px solid transparent;
+
+ */
