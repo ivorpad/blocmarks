@@ -13,6 +13,18 @@ class TopicsController < ApplicationController
     @topic = Topic.new
   end
 
+  def create
+    @topic = Topic.new(params.require(:topic).permit(:title))
+
+    if @topic.save
+      flash[:notice] = "The topic has been #{@topic.id} created."
+      redirect_to topics_path
+    else
+      flash[:error] = "The topic #{@topic.id} cannot be created."
+      render 'new'
+    end
+  end
+
   def edit
   end
 
@@ -24,6 +36,7 @@ class TopicsController < ApplicationController
       redirect_to @topic
     else
       flash[:error] = "The topic cannot be deleted."
+      redirect_to @topic
     end
   end
 end
