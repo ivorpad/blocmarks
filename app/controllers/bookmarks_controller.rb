@@ -9,7 +9,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.new(bookmark_params.merge(user_id: current_user.id))
+    @bookmark = Bookmark.new(bookmark_params)
     if @bookmark.save
       flash[:notice] = "The bookmark #{@bookmark.url} has been created."
       redirect_to topics_path
