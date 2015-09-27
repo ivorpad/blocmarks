@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(params.require(:topic).permit(:title))
+    @topic = Topic.new(topic_params)
 
     if @topic.save
       flash[:notice] = "The topic has been #{@topic.id} created."
@@ -27,6 +27,19 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    @topic = Topic.find(params[:id])
+  end
+
+  def update
+    @topic = Topic.find(params[:id])
+
+    if @topic.update_attributes(topic_params)
+      flash[:notice] = "Topic updated"
+      redirect_to topics_path
+    else
+      flash[:error] = "Topic cannot be updated"
+      render :edit
+    end
   end
 
   def destroy
@@ -40,4 +53,12 @@ class TopicsController < ApplicationController
       redirect_to @topic
     end
   end
+
+
+  private
+
+  def topic_params
+    params.require(:topic).permit(:title)
+  end
+
 end
