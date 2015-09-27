@@ -9,25 +9,50 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.new(bookmark_params)
-
+    @bookmark = Bookmark.new(bookmark_params.merge(user_id: current_user.id))
     if @bookmark.save
-
       flash[:notice] = "The bookmark #{@bookmark.url} has been created."
       redirect_to topics_path
     else
       flash[:error] = "The bookmark could not be created."
-      render 'new'
+      # TODO: render 'new' returns Undefined Method
+      redirect_to topics_path
+    end
+  end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+
+    if @bookmark.destroy
+      flash[:notice] = "Bookmark #{@bookmark.url} deleted."
+      redirect_to topics_path
+    else
+      flash[:error] = "The bookmark could not be deleted"
+      render @bookmark
     end
   end
 
   def edit
+    @bookmark = Bookmark.find(params[:id])
+    @topics = Topic.all
+  end
+
+  def update
+    @bookmark = Bookmark.find(params[:id])
+
+    if @bookmark.update_attributes(bookmark_params)
+      flash[:notice] = "Bookmark #{@bookmark.url} updated."
+      redirect_to @bookmark
+    else
+       flash[:error] = "The bookmark could not be updated"
+       render :edit
+    end
   end
 
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:url)
+    params.require(:bookmark).permit(:url, :topic_id)
   end
 
 end

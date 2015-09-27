@@ -4,8 +4,9 @@
 </div>
 
 <div class="form-group">
-  <%= f.select :url, @topics.all.collect {|t| [ t.title ] }, { prompt: "Select a topic for your URL" }, class: "form-control" %>
+  <%= f.select :topic_id, @topics.all.collect {|t| [ t.id ] }, { prompt: "Select a topic for your URL" }, class: "form-control" %>
 </div>
+
 
 <div class="form-group">
   <%= f.submit "Submit", class: 'btn btn-success' %>

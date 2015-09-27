@@ -1,8 +1,9 @@
-<h1>Bookmark Info</h1>
+<h3><%= @bookmark.url %> —
+  <%= link_to "Delete bookmark", bookmark_path, class: "btn btn-danger btn-xs", method: :delete %>
+  <%= link_to "Update bookmark", edit_bookmark_path, class: "btn btn-primary btn-xs" %>
+</h3>
 
 <p>Go to <a href="<%= @bookmark.url %>"><%= @bookmark.url %></a></p>
 <p>URL submitted by: <b><%= @bookmark.topic.user.name %></b>  </p>
-
+ <br>
 Go <%= link_to "Back", topics_path %>
-
-<%= console %>

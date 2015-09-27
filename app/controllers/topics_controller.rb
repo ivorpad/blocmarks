@@ -1,4 +1,4 @@
-class TopicsController < ApplicationController
+  class TopicsController < ApplicationController
 
   before_action :authenticate_user!
 
@@ -15,7 +15,8 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(topic_params)
+    @topic = current_user.topics.build( topic_params )
+    #@topic = Topic.new(topic_params.merge(user_id: current_user.id))
 
     if @topic.save
       flash[:notice] = "The topic #{@topic.title} has been  created."
