@@ -1,2 +1,28 @@
-<h1>Topics#show</h1>
-<p>Find me in app/views/topics/show.html.erb</p>
+<div class="row">
+  <div class="col-md-12">
+    <h3> #<%= @topics.title %> </h3>
+
+    <% if @topics.bookmarks.exists? %>
+    <p>Here's the list of Bookmarks that have been created.</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Url</th>
+        <th>Submitted by</th>
+      </tr>
+    </thead>
+    <tbody>
+  <% @topics.bookmarks.each do |bookmark| %>
+    <tr>
+      <td><a href="<%= bookmark.url %>"><%= bookmark.url %></a></td>
+      <td><%= bookmark.topic.user.name%></td>
+    </tr>
+  <% end %>
+    </tbody>
+    </table>
+    <% else %>
+      <p>There are no bookmarks here, please go ahead and create one.</p>
+    <% end %>
+  <%= link_to "Go back", topics_path %>
+  </div>
+</div>
