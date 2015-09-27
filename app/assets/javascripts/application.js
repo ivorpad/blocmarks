@@ -16,10 +16,8 @@
 //= require bootstrap
 //= require_tree .
 
-
-// TODO: Fix a bug where the tab won't stay "active" when I go to root_path
-// http://stackoverflow.com/questions/10523433/how-do-i-keep-the-current-tab-active-with-twitter-bootstrap-after-a-page-reload
-$(document).ready(function() {
-    $('.nav-tabs > li:first-child').addClass('active');
-    $('.tab-pane:first-child').addClass('active');
+// http://stackoverflow.com/questions/18770517/rails-4-how-to-use-document-ready-with-turbo-links
+$(document).on('ready page:load', function () {
+  $('.nav-tabs > li:first-child').addClass('active');
+  $('.tab-pane:first-child').addClass('active');
 });
