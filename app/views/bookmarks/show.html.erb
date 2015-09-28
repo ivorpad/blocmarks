@@ -4,6 +4,6 @@
 </h3>
 
 <p>Go to <a href="<%= @bookmark.url %>"><%= @bookmark.url %></a></p>
-<p>URL submitted by: <b><%= @bookmark.topic.user.name %></b>  </p>
+<p>URL submitted by: <b><%= @bookmark.user.name %></b>  </p>
  <br>
 Go <%= link_to "Back", topics_path %>
