@@ -43,10 +43,10 @@
                             <span class="date"> <%= bookmark.created_at %></span>
                             by
                             <span class="author">
-                                <% if topic.user.name.present? %>
-                                  <%= topic.user.name %>
+                                <% if bookmark.user.name.present? %>
+                                  <%= bookmark.user.name %>
                                 <% else %>
-                                  <%= topic.user.email %>
+                                  <%= bookmark.user.email %>
                               <% end %>
                             </span>
                           </span>

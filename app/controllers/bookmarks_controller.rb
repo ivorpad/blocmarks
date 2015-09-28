@@ -11,7 +11,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.new(bookmark_params)
+    @bookmark = Bookmark.new(bookmark_params.merge(user_id: current_user.id))
     authorize @bookmark
     if @bookmark.save
       flash[:notice] = "The bookmark #{@bookmark.url} has been created."
