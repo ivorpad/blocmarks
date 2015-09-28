@@ -120,25 +120,3 @@ and (min-width : 45em) {
     position: relative;
   }
 }
-/*
-
-Caret right for active tabs.
-
-ul.nav.nav-tabs.tabs-left li:after {
-
-}
-
-content: "";
-position: absolute;
-bottom: 15px;
-left: 191px;
-border-style: solid;
-border-color: #F3961C transparent;
-display: block;
-width: 0;
-border-left: 4px solid black;
-border-right: 0;
-border-top: 4px solid transparent;
-border-bottom: 4px solid transparent;
-
- */
