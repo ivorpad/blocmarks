@@ -5,5 +5,7 @@
 
 <p>Go to <a href="<%= @bookmark.url %>"><%= @bookmark.url %></a></p>
 <p>URL submitted by: <b><%= @bookmark.user.name %></b>  </p>
+<%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>
+
  <br>
 Go <%= link_to "Back", topics_path %>
