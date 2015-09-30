@@ -27,7 +27,6 @@
         <% @topics.each do |topic| %>
         <div class="tab-pane" id="<%= topic.title.parameterize %>">
           <h3 class="tab-title">
-            <a href="#">#<%=  %></a>
             <%= link_to topic.title.parameterize.capitalize , topic_path(topic.id) %>
             <%= link_to "Update Topic", edit_topic_path(topic.id), class: 'btn btn-primary btn-xs' %>
             <%= link_to "Delete Topic", topic_path(topic.id), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: "Are you sure?" } %>
