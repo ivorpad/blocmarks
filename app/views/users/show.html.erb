@@ -23,17 +23,15 @@
         <h4>Bookmarks that I Like</h4>
 
         <ul class="bookmark-list">
-        <% @liked_bookmarks.each do |bookmark| %>
+        <% @liked_bookmarks.each do |like| %>
           <li>
             <a href="#">
-                 <!-- TODO Refactor. DRY bookmark.bookmark -->
-              <%= bookmark.bookmark.url %> <br>
+              <%= like.bookmark.url %> <br>
               <span class="meta">Posted
-                <span class="date"> <%= time_ago_in_words(bookmark.created_at) %> </span>
+                <span class="date"> <%= time_ago_in_words(like.created_at) %> </span>
                 by
                 <span class="author">
-                  <!-- TODO Refactor: Show the creator of the bookmark -->
-                    <%= bookmark.user.name %>
+                    <%= like.bookmark.user.name %>
                 </span>
               </span>
             </a>
